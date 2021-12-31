@@ -1,0 +1,74 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <hr />
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">{{ testName }}</div>
+          <div class="panel-body">
+            <form>
+              <div *ngIf="qSet">
+                <label>{{ qSet[j].questionText }}</label>
+                <div
+                  class="radio"
+                  *ngFor="let option of qSet[j].options; let i = index"
+                >
+                  <div *ngIf="qSet[j].type; else elseblock">
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="option"
+                        value="{{ i }}"
+                        [checked]="isTrue(i, 1)"
+                        (click)="optionsStore(qSet[j], i)"
+                      />
+                      {{ option }}
+                    </label>
+                  </div>
+                  <ng-template #elseblock>
+                    <label>
+                      <input
+                        type="radio"
+                        name="option"
+                        value="{{ i }}"
+                        [checked]="isTrue(i, 0)"
+                        (click)="optionsStore(qSet[j], i)"
+                      />
+                      {{ option }}
+                    </label>
+                  </ng-template>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="panel-footer">
+            <button
+              style="margin-right: 15px"
+              [disabled]="isPrevious"
+              class="btn btn-success"
+              (click)="previousQuestion()"
+            >
+              Previous
+            </button>
+
+            <button
+              [disabled]="isNext"
+              class="btn btn-success"
+              (click)="nextQuestion()"
+            >
+              Next
+            </button>
+            <button
+              href="finish.html"
+              class="pull-right btn btn-danger"
+              (click)="checkAns()"
+            >
+              Finish
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container -->
+</body>

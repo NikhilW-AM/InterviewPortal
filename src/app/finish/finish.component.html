@@ -1,0 +1,26 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <h1>My Interview Portal</h1>
+      <hr />
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">{{ testName }}</div>
+          <div class="panel-body">
+            <div style="text-align: center">
+              <h2 class="">Total no of Questions: {{ questionLength }}</h2>
+              <h3 class="text-success">
+                Correct Answers: {{ correctCount }}
+                <span class="text-danger">Wrong Answers: {{ wrongCount }}</span>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center">
+      <button routerLink="/test" (click)="clear()">Home</button>
+    </div>
+  </div>
+  <!-- /.container -->
+</body>

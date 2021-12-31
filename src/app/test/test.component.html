@@ -1,0 +1,32 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <hr />
+      <div class="col-md-12">
+        <table class="table table-striped" *ngIf="testJsonDetails">
+          <thead>
+            <tr>
+              <th>Test</th>
+              <th>No of Questions</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let test of testJsonDetails.tests; let i = index">
+            <tr>
+              <td>{{ test.name }}</td>
+              <td>{{ test.questions.length }}</td>
+              <td>
+                <a
+                  class="btn btn-warning"
+                  (click)="onSelect(test._id, test.questions[0]._id)"
+                  >Start Test</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- /.container -->
+</body>
